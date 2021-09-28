@@ -7,9 +7,21 @@ namespace CursoCShrap
 {
     class Conta
     {
-        public string Cliente { get; set; }
+        public string Cliente { get; private set; }
         public int NumConta { get; set; }
         public double Saldo { get; private set; }
+
+        public Conta(string cliente, int conta)
+        {
+            Cliente = cliente;
+            NumConta = conta;
+        }
+
+        public Conta(string cliente, int conta, double quantia) : this(cliente, conta)
+        {
+            Deposito(quantia);
+
+        }
 
         public void Deposito(double valor)
         {
